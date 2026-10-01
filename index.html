@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusPulse — Student Updates Board</title>
+  <meta name="description" content="CampusPulse is a live student updates board where students can post campus announcements, event news, project updates, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header id="site-header">
+    <div class="header-inner">
+      <div class="logo" id="logo">
+        <span class="logo-icon">📡</span>
+        <span class="logo-text">Campus<span class="accent">Pulse</span></span>
+      </div>
+      <nav class="header-nav" id="header-nav">
+        <button class="nav-btn active" data-filter="all" id="nav-all">All</button>
+        <button class="nav-btn" data-filter="announcement" id="nav-announcement">📢 Announcements</button>
+        <button class="nav-btn" data-filter="event" id="nav-event">🎉 Events</button>
+        <button class="nav-btn" data-filter="project" id="nav-project">🚀 Projects</button>
+        <button class="nav-btn" data-filter="general" id="nav-general">💬 General</button>
+      </nav>
+      <button class="btn-primary" id="open-modal-btn">
+        <span class="plus-icon">+</span> New Update
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Stay in the Loop.<br /><span class="hero-accent">Student Updates, Live.</span></h1>
+      <p class="hero-sub">Post and discover campus announcements, events, project showcases, and everything happening on campus — all in one place.</p>
+      <div class="search-wrapper" id="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search updates..." autocomplete="off" />
+      </div>
+      <div class="hero-stats" id="hero-stats">
+        <div class="stat-card">
+          <span class="stat-value" id="stat-total">0</span>
+          <span class="stat-label">Total Updates</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="stat-today">0</span>
+          <span class="stat-label">Today</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="stat-students">0</span>
+          <span class="stat-label">Contributors</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-glow"></div>
+  </section>
+
+  <!-- ===================== UPDATES FEED ===================== -->
+  <main id="updates-feed">
+    <div class="feed-header">
+      <h2 id="feed-title">All Updates</h2>
+      <div class="sort-controls" id="sort-controls">
+        <button class="sort-btn active" data-sort="newest" id="sort-newest">Newest</button>
+        <button class="sort-btn" data-sort="oldest" id="sort-oldest">Oldest</button>
+        <button class="sort-btn" data-sort="liked" id="sort-liked">Most Liked</button>
+      </div>
+    </div>
+    <div class="updates-grid" id="updates-grid">
+      <!-- Cards rendered by JS -->
+    </div>
+    <div class="empty-state" id="empty-state" style="display:none;">
+      <span class="empty-icon">📭</span>
+      <h3>No updates yet</h3>
+      <p>Be the first to share something with the campus!</p>
+    </div>
+  </main>
+
+  <!-- ===================== MODAL ===================== -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h2 class="modal-title">Post a New Update</h2>
+      <form id="update-form" autocomplete="off">
+        <div class="form-group">
+          <label for="input-name">Your Name</label>
+          <input type="text" id="input-name" placeholder="e.g. Aarav Sharma" required />
+        </div>
+        <div class="form-group">
+          <label for="input-category">Category</label>
+          <select id="input-category" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="announcement">📢 Announcement</option>
+            <option value="event">🎉 Event</option>
+            <option value="project">🚀 Project</option>
+            <option value="general">💬 General</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="input-title">Title</label>
+          <input type="text" id="input-title" placeholder="Brief title of your update" required />
+        </div>
+        <div class="form-group">
+          <label for="input-body">Details</label>
+          <textarea id="input-body" rows="5" placeholder="Share details, links, or anything useful..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">
+          <span>🚀</span> Publish Update
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="site-footer">
+    <p>&copy; 2026 CampusPulse. Built for students, by students.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
